@@ -33,4 +33,12 @@ class School
     end
   end
 
+  def convert_end_time_to_clock_time
+    if @start_time[0..1].to_i + @hours_in_school_day > 12
+        @start_time = @start_time.chomp(":00").to_i + @hours_in_school_day
+        @start_time -= 12
+        @start_time.to_s + ":00"
+      end
+    end
+
 end
